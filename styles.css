@@ -104,6 +104,8 @@ body {
     animation: fadeInUp 1s ease-out;
     background: transparent;
     object-fit: contain;
+    filter: drop-shadow(0 0 0px transparent);
+    mix-blend-mode: screen;
 }
 
 h1 {
