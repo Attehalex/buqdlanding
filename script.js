@@ -4,7 +4,7 @@ let totalScore = 0;
 
 // IMPORTANT: Update this with your Calendly link
 // Create a Calendly account and get your scheduling link
-const CALENDLY_ONE_ON_ONE = 'https://calendly.com/your-username/one-on-one';
+const CALENDLY_ONE_ON_ONE = 'https://calendly.com/iamalexatteh/30min';
 
 function selectOption(element) {
     const question = element.parentElement.getAttribute('data-question');
