@@ -5,58 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>BUQD - Rent & Earn</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        /* (Your original styles unchanged for brevity) */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; color: #0E2025; overflow-x: hidden; }
-        .hero { min-height: 100vh; background: linear-gradient(135deg, #0E2025 0%, #1a3a42 100%); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 2rem; }
-        .book { position: absolute; font-size: 3rem; opacity: 0.1; animation: float 20s infinite; }
-        @keyframes float { 0%,100%{transform:translateY(0) rotate(0deg);} 25%{transform:translateY(-30px) rotate(5deg);} 50%{transform:translateY(-60px) rotate(-5deg);} 75%{transform:translateY(-30px) rotate(3deg);} }
-        .book:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-        .book:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
-        .book:nth-child(3) { bottom: 15%; left: 20%; animation-delay: 4s; }
-        .book:nth-child(4) { top: 50%; left: 5%; animation-delay: 6s; }
-        .book:nth-child(5) { bottom: 20%; right: 10%; animation-delay: 8s; }
-        .book:nth-child(6) { top: 70%; right: 25%; animation-delay: 10s; }
-        .hero-content { text-align: center; color: #E9F3F6; z-index: 10; max-width: 1000px; }
-        .logo { font-family: 'Inter', sans-serif; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; color: #358D74; letter-spacing: 3px; }
-        .logo-image { max-width: 200px; margin: 0 auto 2rem; display: block; animation: fadeInUp 1s ease-out; }
-        h1 { font-family: 'Poppins', sans-serif; font-size: clamp(1.8rem, 4.5vw, 3.5rem); font-weight: 700; margin-bottom: 1.5rem; line-height: 1.3; animation: fadeInUp 1s ease-out; }
-        .highlight { position: relative; display: inline-block; }
-        .highlight::before { content: ''; position: absolute; top: -8px; left: -10px; right: -10px; bottom: -8px; background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 5,50 Q 25,20 50,40 T 95,50 Q 75,70 50,60 T 5,50' fill='none' stroke='%23B0C661' stroke-width='3' opacity='0.7'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-size: 100% 100%; z-index: -1; animation: scribbleDraw 1.5s ease-out 0.5s both; }
-        .underline { position: relative; display: inline-block; }
-        .underline::after { content: ''; position: absolute; left: -5px; right: -5px; bottom: -5px; height: 15px; background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0,10 Q 25,5 50,10 T 100,10' fill='none' stroke='%23B0C661' stroke-width='3' opacity='0.7'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-size: 100% 100%; animation: scribbleDraw 1.5s ease-out 0.8s both; }
-        @keyframes scribbleDraw { from { opacity: 0; transform: scale(0.8);} to { opacity: 1; transform: scale(1); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .subtitle { font-size: clamp(1rem, 2vw, 1.3rem); line-height: 1.6; margin-bottom: 2rem; animation: fadeInUp 1s ease-out 0.3s both; opacity: 0.95; }
-        .cta-button { background: #358D74; color: #E9F3F6; border: none; padding: 1.2rem 3rem; font-size: 1.2rem; font-weight: 600; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; animation: fadeInUp 1s ease-out 0.5s both; margin-top: 1rem; font-family: 'Poppins', sans-serif; }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(53, 141, 116, 0.4); background: #2d7560; }
-        .assessment-section { padding: 5rem 2rem; background: #E9F3F6; }
-        .container { max-width: 800px; margin: 0 auto; }
-        h2 { font-family: 'Poppins', sans-serif; font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #0E2025; }
-        .question { background: white; padding: 2rem; border-radius: 20px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(14, 32, 37, 0.08); opacity: 0; animation: slideIn 0.5s ease-out forwards; }
-        @keyframes slideIn { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
-        .question:nth-child(2) { animation-delay: 0.2s; }
-        .question:nth-child(3) { animation-delay: 0.4s; }
-        .question:nth-child(4) { animation-delay: 0.6s; }
-        .question:nth-child(5) { animation-delay: 0.8s; }
-        .question:nth-child(6) { animation-delay: 1s; }
-        .question:nth-child(7) { animation-delay: 1.2s; }
-        .question h3 { font-family: 'Poppins', sans-serif; font-size: 1.3rem; margin-bottom: 1.5rem; color: #0E2025; }
-        .options { display: flex; flex-direction: column; gap: 1rem; }
-        .option { background: #E9F3F6; border: 2px solid transparent; padding: 1rem 1.5rem; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; font-family: 'Poppins', sans-serif; }
-        .option:hover { background: #d4e8ed; border-color: #358D74; }
-        .option.selected { background: #358D74; color: #E9F3F6; border-color: #358D74; }
-        .result { text-align: center; padding: 3rem 2rem; background: white; border-radius: 20px; margin-top: 2rem; display: none; box-shadow: 0 5px 20px rgba(14, 32, 37, 0.1); }
-        .result.show { display: block; animation: fadeInUp 0.5s ease-out; }
-        .result h3 { font-family: 'Poppins', sans-serif; font-size: 2rem; color: #358D74; margin-bottom: 1rem; }
-        .result p { font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #0E2025; line-height: 1.6; margin-bottom: 2rem; }
-        .submit-btn { background: #358D74; color: #E9F3F6; border: none; padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 600; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; margin-top: 2rem; font-family: 'Poppins', sans-serif; }
-        .submit-btn:hover { background: #2d7560; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(53, 141, 116, 0.4); }
-        .submit-btn:disabled { background: #ced4da; cursor: not-allowed; transform: none; }
-        .action-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .secondary-btn { background: transparent; color: #358D74; border: 2px solid #358D74; padding: 1rem 2rem; font-size: 1rem; font-weight: 600; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; font-family: 'Poppins', sans-serif; }
-        .secondary-btn:hover { background: #358D74; color: #E9F3F6; }
+    <link rel="stylesheet" href="styles.css">
     </style>
 </head>
 <body>
@@ -158,89 +107,65 @@
         </div>
     </section>
 
-    <script>
-        const answers = {};
-        let totalScore = 0;
+    <!-- Feedback Form Section -->
+    <section class="feedback-section" id="feedback">
+        <div class="container">
+            <h2>Share Your Feedback</h2>
+            <div class="feedback-card">
+                <div id="feedbackAlert" class="alert"></div>
+                
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Enter your full name" 
+                            required
+                        >
+                    </div>
 
-        function selectOption(element) {
-            const question = element.parentElement.getAttribute('data-question');
-            const options = element.parentElement.querySelectorAll('.option');
+                    <div class="form-group">
+                        <label for="email">Your Email *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Enter your email address" 
+                            required
+                        >
+                    </div>
 
-            options.forEach(opt => opt.classList.remove('selected'));
-            element.classList.add('selected');
+                    <div class="form-group">
+                        <label for="rating">How would you rate your experience? *</label>
+                        <select id="rating" name="rating" required style="width: 100%; padding: 1rem; border: 2px solid #ccc; border-radius: 12px; font-family: 'Poppins', sans-serif; font-size: 1rem;">
+                            <option value="">Select a rating</option>
+                            <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                            <option value="4">⭐⭐⭐⭐ Good</option>
+                            <option value="3">⭐⭐⭐ Average</option>
+                            <option value="2">⭐⭐ Fair</option>
+                            <option value="1">⭐ Poor</option>
+                        </select>
+                    </div>
 
-            const score = parseInt(element.getAttribute('data-score'));
-            answers[question] = {
-                text: element.textContent,
-                score: score
-            };
+                    <div class="form-group">
+                        <label for="feedback">Your Feedback *</label>
+                        <textarea 
+                            id="feedback" 
+                            name="feedback" 
+                            placeholder="Please share your thoughts, suggestions, or concerns..." 
+                            required
+                        ></textarea>
+                    </div>
 
-            if (Object.keys(answers).length === 6) {
-                document.getElementById('submitBtn').disabled = false;
-            }
-        }
+                    <div class="spinner"></div>
+                    <button type="submit" class="submit-btn">Send Feedback</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-        function showResult() {
-            totalScore = Object.values(answers).reduce((sum, answer) => sum + answer.score, 0);
-
-            const resultDiv = document.getElementById('result');
-            const resultTitle = document.getElementById('resultTitle');
-            const resultText = document.getElementById('resultText');
-            const actionButtons = document.getElementById('actionButtons');
-
-            let title = "";
-            let message = "";
-            let buttons = "";
-
-            if (totalScore >= 71) {
-                title = "BUQD is Perfect for You! 🎯";
-                message = "Based on your responses, you're experiencing the exact challenges BUQD solves. Whether you want to access more books affordably, earn from your existing collection, or connect with fellow readers, we've got you covered. Let's schedule a personal chat to discuss your specific needs.";
-                buttons = `
-                    <button class="cta-button" onclick="window.open('https://forms.gle/your-one-on-one-form', '_blank', 'noopener')">
-                        Schedule a One-on-One Chat
-                    </button>
-                `;
-            } else if (totalScore >= 61) {
-                title = "BUQD Could Really Help You 📚";
-                message = "Your reading habits and collection show that BUQD could make a real difference in how you access and share books. Join us for a Google Meet where we'll walk you through exactly how our platform works and answer all your questions.";
-                buttons = `
-                    <button class="cta-button" onclick="window.open('https://meet.google.com/your-meet-link', '_blank', 'noopener')">
-                        Join Our Solution Demo
-                    </button>
-                `;
-            } else if (totalScore >= 55) {
-                title = "Curious About BUQD? 💡";
-                message = "BUQD might be a good fit for you. We're hosting group calls where readers like you learn how our platform can help you save money, earn from your books, and connect with other readers. Would you like to join us, or would you prefer to explore on your own for now?";
-                buttons = `
-                    <button class="cta-button" onclick="trackChoice('group_call'); window.open('https://calendly.com/your-group-call', '_blank', 'noopener')">
-                        Join a Group Call
-                    </button>
-                    <button class="secondary-btn" onclick="trackChoice('not_now'); alert('Thanks for your interest! Feel free to explore our site and reach out when you\\'re ready.')">
-                        Not Right Now
-                    </button>
-                `;
-            } else {
-                title = "Thanks for Your Interest! 👋";
-                message = "It looks like BUQD might not be the right fit for your current reading situation, and that's okay! If your circumstances change or you'd like to learn more in the future, we're here.";
-                buttons = `
-                    <button class="secondary-btn" onclick="alert('Thanks! We\\'ll keep you updated on BUQD.')">
-                        Stay Updated
-                    </button>
-                `;
-            }
-
-            resultTitle.textContent = title;
-            resultText.textContent = message;
-            actionButtons.innerHTML = buttons;
-
-            resultDiv.classList.add('show');
-            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        function trackChoice(choice) {
-            // fixed console.log syntax
-            console.log(`User chose: ${choice} with score: ${totalScore}`);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
